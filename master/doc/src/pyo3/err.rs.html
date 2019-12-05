@@ -546,7 +546,6 @@
 <span id="546">546</span>
 <span id="547">547</span>
 <span id="548">548</span>
-<span id="549">549</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Copyright (c) 2017-present PyO3 Project and Contributors</span>
 
@@ -569,9 +568,9 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// **CAUTION**</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// When you construct an instance of `PyErrValue`, we highly recommend to use `from_err_args` method.</span>
-<span class="doccomment">/// If you want to to construct `PyErrValue::ToArgs` directly, please do not forget calling</span>
-<span class="doccomment">/// `Python::acquire_gil`.</span>
+<span class="doccomment">/// When you construct an instance of `PyErrValue`, we highly recommend to use `from_err_args`</span>
+<span class="doccomment">/// method.  If you want to to construct `PyErrValue::ToArgs` directly, please do not forget to</span>
+<span class="doccomment">/// call `Python::acquire_gil`.</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">PyErrValue</span> {
     <span class="prelude-val">None</span>,
     <span class="ident">Value</span>(<span class="ident">PyObject</span>),
@@ -593,10 +592,9 @@
 
     <span class="doccomment">/// The value of the exception.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// This can be either an instance of `PyObject`,</span>
-    <span class="doccomment">/// a tuple of arguments to be passed to `ptype`&#39;s constructor,</span>
-    <span class="doccomment">/// or a single argument to be passed to `ptype`&#39;s constructor.</span>
-    <span class="doccomment">/// Call `PyErr::instance()` to get the exception instance in all cases.</span>
+    <span class="doccomment">/// This can be either an instance of `PyObject`, a tuple of arguments to be passed to</span>
+    <span class="doccomment">/// `ptype`&#39;s constructor, or a single argument to be passed to `ptype`&#39;s constructor.  Call</span>
+    <span class="doccomment">/// `PyErr::to_object()` to get the exception instance in all cases.</span>
     <span class="kw">pub</span> <span class="ident">pvalue</span>: <span class="ident">PyErrValue</span>,
 
     <span class="doccomment">/// The `PyTraceBack` object associated with the error.</span>
